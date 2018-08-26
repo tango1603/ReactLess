@@ -1,0 +1,54 @@
+.timer {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__counter {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 3em;
+    }
+    &__button {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background-color: #79f30681;
+      border: 1px solid #0615f3;
+      width: 80px;
+      text-align: center;
+      &:hover {
+        border: 2px solid #f3ef06;
+      }
+    }
+    &__interval-text {
+      text-align: center;
+      font-weight: 700;
+      font-size: 2em;
+    }
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__interval-button {
+      margin: 10px 5px;
+      padding: 3px 10px;
+      background-color: #f3c80681;
+      border: 1px solid #f30606;
+      width: 30px;
+      text-align: center;
+      &:hover {
+        border: 2px solid #f3ef06;
+      }
+    }
+    &--vertical {
+      flex-direction: column;
+    }
+  }
+}
