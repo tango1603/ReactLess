@@ -1,0 +1,19 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+
+  &__check {
+    &--hide {
+      opacity: 0;
+    }
+  }
+
+  &__name {}
+
+  &__description {}
+
+  &__group {}
+}
