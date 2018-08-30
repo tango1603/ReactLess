@@ -6,14 +6,24 @@
   border-bottom: 1px solid #f0f0f0;
 
   &__check {
+    margin-right: 20px;
     &--hide {
       opacity: 0;
+      margin-right: 20px;
     }
   }
 
-  &__name {}
+  &__name {
+    width: 100%;
+  }
 
-  &__description {}
+  &__description {
+    width: 100%;
+    
+  }
 
-  &__group {}
+  &__group {
+    width: 50%;
+    text-align: right;
+  }
 }

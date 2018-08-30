@@ -9,7 +9,6 @@ class Task extends Component {
 
   render() {
     const { name, description } = this.props;
-
     const group = DEF_GROUP[this.props.group];
 
     return (

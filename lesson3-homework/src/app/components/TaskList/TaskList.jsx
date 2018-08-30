@@ -2,18 +2,9 @@ import React, { Component } from 'react';
 import './TaskList.scss';
 import Task from '../Task/Task.jsx';
 
-import { MockList } from '../../constants/constants.js';
-
-export default class TaskList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      tasklist: MockList
-    };
-  }
-
+export default class TaskList extends Component { 
   render() {
-    const { tasklist } = this.state;
+    const { taskList } = this.props.data;
 
     return (
       <div className="task-list">
@@ -24,8 +15,9 @@ export default class TaskList extends Component {
           <div className="task__description">Описание задачи</div>
           <div className="task__group">Группа</div>
         </div>
-        {tasklist.map((task,index) => (
-          <Task key={index}
+        {taskList.map((task, index) => (
+          <Task
+            key={index}
             name={task.name}
             description={task.description}
             group={task.group}

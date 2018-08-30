@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import './App.scss';
 
 import TaskList from './components/TaskList/TaskList.jsx';
+import AddTask from './components/AddTask/AddTask.jsx';
+
+import { MOCKLIST } from './constants/constants.js';
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      taskList: null
+      taskList: MOCKLIST
     };
   }
-  
+
   render() {
     return (
-      <TaskList/>
+      <div>
+        <TaskList data={this.state} />
+        <AddTask />
+      </div>
     );
   }
 }

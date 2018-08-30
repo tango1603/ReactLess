@@ -4,7 +4,7 @@ export const DEF_GROUP = {
   3: 'Done'
 };
 
-export const MockList = [{
+export const MOCKLIST = [{
   name: 'mock1',
   description: 'deskmok1',
   group: 1
