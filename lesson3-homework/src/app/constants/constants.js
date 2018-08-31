@@ -4,18 +4,20 @@ export const DEF_GROUP = {
   3: 'Done'
 };
 
-export const MOCKLIST = [{
-  name: 'mock1',
-  description: 'deskmok1',
-  group: 1
-},
-{
-  name: 'mock2',
-  description: 'deskmok2',
-  group: 2
-},
- {
-  name: 'mock3',
-  description: 'deskmok3',
-  group: 3
-}];
+export const MOCKLIST = [
+  {
+    name: 'Демозапись1',
+    description: 'Демоописание демозаписи1',
+    group: '1'
+  },
+  {
+    name: 'Демозапись2',
+    description: 'Демоописание демозаписи2',
+    group: '2'
+  },
+  {
+    name: 'Демозапись3',
+    description: 'Демоописание демозаписи3',
+    group: '3'
+  }
+];

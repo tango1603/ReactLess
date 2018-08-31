@@ -1,45 +1,36 @@
 $color:#3d3d3d;
-
 .add-task {
   margin: 10px 0;
   padding: 10px 0;
-
   &__container {
     display: flex;
-    &--right{
+    &--right {
       justify-content: flex-end;
     }
   }
-
   &__check {
     &--hide {
       opacity: 0;
       margin-right: 20px;
     }
   }
-
   &__name {
     width: 100%;
-    border:none;
+    border: none;
     border-bottom: 1px solid $color;
     margin-right: 5px;
   }
-
   &__description {
     width: 100%;
-    border:none;
+    border: none;
     border-bottom: 1px solid $color;
     margin-right: 5px;
-
   }
-
   &__group {
-    width: 50%;
-    border:none;
-    text-align: right;
+    width: 20%;
+    border: none;
     border-bottom: 1px solid $color;
   }
-
   &__button {
     background-color: $color;
     color: #fff;
@@ -54,8 +45,7 @@ $color:#3d3d3d;
     padding: 6px 12px 7px 12px;
     text-align: center;
     border-radius: 3px;
-
-    &--inverse{
+    &--inverse {
       background-color: white;
       color: black;
     }
