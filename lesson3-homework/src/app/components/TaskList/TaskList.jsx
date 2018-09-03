@@ -24,6 +24,7 @@ export default class TaskList extends Component {
             name={task.name}
             description={task.description}
             group={task.group}
+            delItemFromList= {this.props.delItemFromList}
           />
         ))}
       </div>

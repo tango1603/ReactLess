@@ -33,16 +33,21 @@ export default class App extends Component {
     });
   }
 
-  delItemFromList(item) {
-    console.log('del item', item);
+  delItemFromList(delItem) {
     this.setState(prevState => {
-      const list = prevState.taskList;
-      while (list.indexOf(item) !== -1) {
-        list.splice(list.indexOf(item), 1);
-      }
+      const curItem = prevState.taskList.find(
+        item => item.name === delItem.name
+      );
 
+      let result = prevState.taskList;
+      if (curItem) {
+        result = prevState.taskList.splice(
+          prevState.taskList.indexOf(curItem),
+          1
+        );
+      }
       this.saveToLocalStorage();
-      return { list };
+      return { result };
     });
   }
   filterItems(filterValue) {
