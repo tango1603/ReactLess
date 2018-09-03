@@ -1,8 +1,16 @@
-export const DEF_GROUP = {
-  1: 'ToDo',
-  2: 'InProgress',
-  3: 'Done'
-};
+export const DEF_GROUP = [{
+    value: '1',
+    label: 'ToDo'
+  },
+  {
+    value: '2',
+    label: 'InProgress'
+  },
+  {
+    value: '3',
+    label: 'Done'
+  }
+];
 
 export const MOCKLIST = [
   {

@@ -10,7 +10,6 @@ class Task extends Component {
       group: '1',
       done: false
     };
-    console.log('huyak', this.state, this.props);
   }
 
   onChange(event) {
@@ -41,15 +40,12 @@ class Task extends Component {
     }
   }
 
-
   render() {
-    const groups = Object.keys(DEF_GROUP).map(group => (
-      <option key={group} value={group}>
-        {DEF_GROUP[group]}
+    const groups = DEF_GROUP.map(group => (
+      <option key={group.value} value={group.value}>
+        {group.label }
       </option>
     ));
-
-    console.log('pupka ', this.state);
 
     return (
       <div className="add-task">
