@@ -9,13 +9,19 @@ export default class TaskList extends Component {
         <div className="task-list__header">
           <input className="task__check--hide" type="checkbox" />
           <div className="task-list__header task-list__header--bold">
-            Название задачи
+            <p>
+              Название задачи <div className="task-list__arrow up" />
+            </p>
           </div>
           <div className="task-list__header task-list__header--bold">
-            Описание задачи
+            <p>
+              Название задачи <div className="task-list__arrow up" />
+            </p>
           </div>
           <div className="task-list__header  task-list__header--bold-right">
-            Группа
+            <p>
+              Группа <div className="task-list__arrow up" />
+            </p>
           </div>
         </div>
         {taskList.map((task, index) => (
@@ -24,7 +30,7 @@ export default class TaskList extends Component {
             name={task.name}
             description={task.description}
             group={task.group}
-            delItemFromList= {this.props.delItemFromList}
+            delItemFromList={this.props.delItemFromList}
           />
         ))}
       </div>
