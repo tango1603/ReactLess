@@ -12,7 +12,7 @@ export default class App extends Component {
     super();
     this.state = {
       taskList: this.initialDataTaskList(),
-      filteredList: null
+      modifiedList: null
     };
   }
 
@@ -58,8 +58,41 @@ export default class App extends Component {
       );
     }
     this.setState({
-      filteredList: filteredTaskList
+      modifiedList: filteredTaskList
     });
+  }
+
+  sortList(sortType, sortField) {
+    console.log('sortList', sortType, 'sortField', sortField);
+
+    let sortedTaskList = this.state.taskList;
+    sortedTaskList.sort((a, b) => {
+      if (sortType ==='asc') {
+        if (a[sortField] > b[sortField]) {
+          return 1;
+        }
+        if (a[sortField] < b[sortField]) {
+          return -1;
+        }
+      }
+      if (sortType === 'desc') {
+        if (a[sortField] > b[sortField]) {
+          return -1;
+        }
+        if (a[sortField] < b[sortField]) {
+          return 1;
+        }
+      }
+      
+      // a должно быть равным b
+      return 0;
+    });
+
+    this.setState({
+      modifiedList: sortedTaskList
+    });
+
+    console.log(sortedTaskList);
   }
 
   render() {
@@ -68,8 +101,9 @@ export default class App extends Component {
         <div className="caption">ToDoList:</div>
         <Filter filterItems={this.filterItems.bind(this)} />
         <TaskList
-          taskList={this.state.filteredList || this.state.taskList}
+          taskList={this.state.modifiedList || this.state.taskList}
           delItemFromList={this.delItemFromList.bind(this)}
+          sortList={this.sortList.bind(this)}
         />
         <AddTask addItemToList={this.addItemToList.bind(this)} />
       </div>

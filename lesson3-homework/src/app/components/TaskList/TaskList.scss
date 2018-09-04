@@ -1,52 +1,5 @@
 .task-list {
   width: 1000px;
   font-size: 14px;
-  position: relative;  
-
-  &__header {
-    margin: 10px 0;
-    font-weight: 500px;
-    display: flex;
-    width: 100%;
-
-    &--bold {
-      font-weight: 700;
-    }
-
-    &--bold-right {
-      font-weight: 700;
-      width: 20%;
-    }
-  }  
-
-
-  &__arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-  }
-
-  .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-
-  .left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-  }
-
-  .up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }
-
-  .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
-
-
-
+  position: relative; 
 }
