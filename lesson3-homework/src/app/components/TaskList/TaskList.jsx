@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import './TaskList.scss';
 import Task from '../Task/Task.jsx';
 import SortBtn from '../SortBtn/SortBtn.jsx';
-export default class TaskList extends Component {
+
+const mapStateToProps = (state) => {
+  console.log('mapStateToProps', state);
+  return {
+    taskList: state.taskList,
+    modifiedList: state.modifiedList
+  };
+};
+
+
+class TaskList extends Component {
   render() {
     const taskList = this.props.taskList;
     return (
@@ -40,3 +53,13 @@ export default class TaskList extends Component {
     );
   }
 }
+
+TaskList.propTypes = {
+  addItemToList: PropTypes.func,
+  delItemFromList: PropTypes.func,
+  sortList: PropTypes.func,
+  taskList: PropTypes.object,
+  modifiedList: PropTypes.object
+};
+
+export default connect(mapStateToProps)(TaskList);

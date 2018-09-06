@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+
 import './Filter.scss';
 import { DEF_GROUP } from '../../constants/constants.js';
 import Select from 'react-select';
+import { filterItems } from '../../store/actions';
 
-export default class Filter extends Component {
+
+const mapStateToProps = (state) => {
+  console.log('mapStateToProps', state);
+  return {
+    taskList: state.taskList,
+    modifiedList: state.modifiedList
+  };
+};
+const mapActionToProps = (dispatch) => {
+  return {
+    filterItems: bindActionCreators(filterItems, dispatch)
+  };
+};
+
+
+class Filter extends Component {
   constructor() {
     super();
     this.state = { selectedOption: null };
@@ -11,8 +31,9 @@ export default class Filter extends Component {
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+    console.log('Option selected:', selectedOption);
     this.props.filterItems(selectedOption);
+
   };
 
   render() {
@@ -22,9 +43,18 @@ export default class Filter extends Component {
           value={this.state.selectedOption}
           onChange={this.handleChange}
           options={DEF_GROUP}
-          isClearable={true}
+          isClearable
         />
       </div>
     );
   }
 }
+
+
+Filter.propTypes = {
+  filterItems: PropTypes.func,
+  taskList: PropTypes.object,
+  modifiedList: PropTypes.object
+};
+
+export default connect(mapStateToProps, mapActionToProps)(Filter);

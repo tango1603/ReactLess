@@ -1,7 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+
 import './Task.scss';
 import { DEF_GROUP } from '../../constants/constants.js';
-export default class Task extends Component {
+
+import { delItemFromList} from '../../store/actions';
+
+const mapStateToProps = (state) => {
+  console.log('mapStateToProps', state);
+  return {
+    taskList: state.taskList,
+    modifiedList: state.modifiedList
+  };
+};
+const mapActionToProps = (dispatch) => {
+  return {
+    delItemFromList: bindActionCreators(delItemFromList, dispatch)
+  };
+};
+
+class Task extends Component {
   onClickHandle(e) {
     console.log('click', e, this.props);
     this.props.delItemFromList(this.props);
@@ -25,3 +45,12 @@ export default class Task extends Component {
     );
   }
 }
+
+Task.propTypes = {
+  group: PropTypes.string,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  delItemFromList: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapActionToProps)(Task);

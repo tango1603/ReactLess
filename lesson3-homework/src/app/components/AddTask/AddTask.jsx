@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+
 import './AddTask.scss';
 import { DEF_GROUP } from '../../constants/constants.js';
+import {addItemToList} from '../../store/actions';
+
+const mapStateToProps = (state) => {
+  console.log('mapStateToProps', state);
+  return {
+    taskList: state.taskList,
+    modifiedList: state.modifiedList
+  };
+};
+const mapActionToProps = (dispatch) => {
+  return {
+    addItemToList: bindActionCreators(addItemToList, dispatch) };
+};
+
+
 class Task extends Component {
   constructor(props) {
     super(props);
@@ -97,4 +116,10 @@ class Task extends Component {
   }
 }
 
-export default Task;
+Task.propTypes = {
+  addItemToList: PropTypes.func,
+  taskList: PropTypes.object,
+  modifiedList: PropTypes.object
+};
+
+export default connect(mapStateToProps, mapActionToProps)(Task);

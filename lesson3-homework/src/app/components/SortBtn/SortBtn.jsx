@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
-import './SortBtn.scss';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
-export default class SortBtn extends Component {
+import './SortBtn.scss';
+import {sortList} from '../../store/actions';
+
+const mapStateToProps = (state) => {
+  console.log('mapStateToProps', state);
+  return {
+    taskList: state.taskList,
+    modifiedList: state.modifiedList
+  };
+};
+const mapActionToProps = (dispatch) => {
+  return {
+    sortList: bindActionCreators(sortList, dispatch)
+  };
+};
+
+class SortBtn extends Component {
   constructor() {
     super();
     this.state = { sortType: null };
@@ -47,3 +65,13 @@ export default class SortBtn extends Component {
     );
   }
 }
+
+SortBtn.propTypes = {
+  sortList: PropTypes.func,
+  taskList: PropTypes.object,
+  name: PropTypes.string,
+  sortField: PropTypes.string,
+  modifiedList: PropTypes.object
+};
+
+export default connect(mapStateToProps, mapActionToProps)(SortBtn);
