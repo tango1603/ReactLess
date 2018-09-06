@@ -27,38 +27,3 @@ export const sortList = (sortType, sortField) => {
     payload: {sortType, sortField}
   };
 };
-
-
-/*
-export const sortList = (sortType, sortField) => {
-  console.log('sortList', sortType, 'sortField', sortField);
-
-  const sortedTaskList = this.state.taskList;
-  sortedTaskList.sort((a, b) => {
-    if (sortType === 'asc') {
-      if (a[sortField] > b[sortField]) {
-        return 1;
-      }
-      if (a[sortField] < b[sortField]) {
-        return -1;
-      }
-    }
-    if (sortType === 'desc') {
-      if (a[sortField] > b[sortField]) {
-        return -1;
-      }
-      if (a[sortField] < b[sortField]) {
-        return 1;
-      }
-    }
-
-    // a должно быть равным b
-    return 0;
-  });
-
-  this.setState({
-    modifiedList: sortedTaskList
-  });
-
-  console.log(sortedTaskList);
-}; */

@@ -7,7 +7,6 @@ import './SortBtn.scss';
 import {sortList} from '../../store/actions';
 
 const mapStateToProps = (state) => {
-  console.log('SortBtn.mapStateToProps', state);
   return {
     taskList: state.taskList
   };

@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import './App.scss';
 
-import Filter from './components/Filter/Filter.jsx';
-import TaskList from './components/TaskList/TaskList.jsx';
-import AddTask from './components/AddTask/AddTask.jsx';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 export default class App extends Component {
 
   render() {
     return (
       <div className="to-do-app">
-        <div className="caption">ToDoList:</div>
-        <Filter />
-        <TaskList/>
-        <AddTask/>
+        <Header />
+        <Main />
       </div>
     );
   }

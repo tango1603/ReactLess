@@ -9,7 +9,6 @@ import { DEF_GROUP } from '../../constants/constants.js';
 import { delItemFromList} from '../../store/actions';
 
 const mapStateToProps = (state) => {
-  console.log('Task.mapStateToProps', state);
   return {
     taskList: state.taskList
   };

@@ -3,15 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import './Filter.scss';
 import { DEF_GROUP } from '../../constants/constants.js';
 import Select from 'react-select';
 import { filterItems } from '../../store/actions';
 
 
 const mapStateToProps = (state) => {
-
-  console.log('Filter.mapStateToProps', state);
   return {
     taskList: state.taskList
   };
@@ -31,7 +28,6 @@ class Filter extends Component {
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    console.log('Option selected:', selectedOption);
     this.props.filterItems(selectedOption);
 
   };
@@ -49,7 +45,6 @@ class Filter extends Component {
     );
   }
 }
-
 
 Filter.propTypes = {
   filterItems: PropTypes.func
