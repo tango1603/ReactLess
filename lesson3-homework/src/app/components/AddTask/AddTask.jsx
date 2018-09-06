@@ -8,15 +8,15 @@ import { DEF_GROUP } from '../../constants/constants.js';
 import {addItemToList} from '../../store/actions';
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps', state);
+  console.log('Task.mapStateToProps', state);
   return {
-    taskList: state.taskList,
-    modifiedList: state.modifiedList
+    taskList: state.taskList
   };
 };
 const mapActionToProps = (dispatch) => {
   return {
-    addItemToList: bindActionCreators(addItemToList, dispatch) };
+    addItemToList: bindActionCreators(addItemToList, dispatch)
+  };
 };
 
 
@@ -118,8 +118,7 @@ class Task extends Component {
 
 Task.propTypes = {
   addItemToList: PropTypes.func,
-  taskList: PropTypes.object,
-  modifiedList: PropTypes.object
+  taskList: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Task);

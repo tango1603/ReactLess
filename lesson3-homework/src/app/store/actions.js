@@ -1,41 +1,35 @@
+import { ACTION_ADD_ITEM_TO_LIST, ACTION_DEL_ITEM_FROM_LIST, ACTION_FILTER_ITEMST, ACTION_SORT_LIST } from '../constants/constants';
+
 export const addItemToList = (newItem) => {
-  this.setState(prevState => {
-    prevState.taskList.push(newItem);
-    this.saveToLocalStorage();
-    return { prevState };
-  });
+  return {
+    type: ACTION_ADD_ITEM_TO_LIST,
+    payload: newItem
+  };
 };
 
 export const delItemFromList = (delItem) => {
-  this.setState(prevState => {
-    const curItem = prevState.taskList.find(
-      item => item.name === delItem.name
-    );
-
-    let result = prevState.taskList;
-    if (curItem) {
-      result = prevState.taskList.splice(
-        prevState.taskList.indexOf(curItem),
-        1
-      );
-    }
-    this.saveToLocalStorage();
-    return { result };
-  });
+  return {
+    type: ACTION_DEL_ITEM_FROM_LIST,
+    payload: delItem
+  };
 };
 
 export const filterItems = (filterValue) => {
-  let filteredTaskList = this.state.taskList;
-  if (filterValue) {
-    filteredTaskList = this.state.taskList.filter(
-      item => item.group === filterValue.value
-    );
-  }
-  this.setState({
-    modifiedList: filteredTaskList
-  });
+  return {
+    type: ACTION_FILTER_ITEMST,
+    payload: filterValue
+  };
 };
 
+export const sortList = (sortType, sortField) => {
+  return {
+    type: ACTION_SORT_LIST,
+    payload: {sortType, sortField}
+  };
+};
+
+
+/*
 export const sortList = (sortType, sortField) => {
   console.log('sortList', sortType, 'sortField', sortField);
 
@@ -67,8 +61,4 @@ export const sortList = (sortType, sortField) => {
   });
 
   console.log(sortedTaskList);
-};
-
-export const saveToLocalStorage = () => {
-  localStorage.appListData = JSON.stringify(this.props.taskList);
-};
+}; */

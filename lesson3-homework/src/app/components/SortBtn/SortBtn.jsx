@@ -7,10 +7,9 @@ import './SortBtn.scss';
 import {sortList} from '../../store/actions';
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps', state);
+  console.log('SortBtn.mapStateToProps', state);
   return {
-    taskList: state.taskList,
-    modifiedList: state.modifiedList
+    taskList: state.taskList
   };
 };
 const mapActionToProps = (dispatch) => {
@@ -67,11 +66,10 @@ class SortBtn extends Component {
 }
 
 SortBtn.propTypes = {
-  sortList: PropTypes.func,
-  taskList: PropTypes.object,
   name: PropTypes.string,
   sortField: PropTypes.string,
-  modifiedList: PropTypes.object
+  sortList: PropTypes.func,
+  taskList: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapActionToProps)(SortBtn);

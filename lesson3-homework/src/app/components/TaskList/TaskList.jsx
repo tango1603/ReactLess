@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import './TaskList.scss';
 import Task from '../Task/Task.jsx';
 import SortBtn from '../SortBtn/SortBtn.jsx';
+import {addItemToList} from '../../store/actions';
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps', state);
+  console.log('TaskList.mapStateToProps', state);
   return {
-    taskList: state.taskList,
-    modifiedList: state.modifiedList
+    taskList: state.taskList
+  };
+};
+
+const mapActionToProps = (dispatch) => {
+  return {
+    addItemToList: bindActionCreators(addItemToList, dispatch)
   };
 };
 
@@ -25,18 +32,15 @@ class TaskList extends Component {
           <SortBtn
             name="Название задачи"
             sortField="name"
-            sortList={this.props.sortList}
           />
           <SortBtn
             name="Описание задачи"
             sortField="description"
-            sortList={this.props.sortList}
           />
           <div>
             <SortBtn
               name="Группа"
               sortField="group"
-              sortList={this.props.sortList}
             />
           </div>
         </div>
@@ -46,7 +50,6 @@ class TaskList extends Component {
             name={task.name}
             description={task.description}
             group={task.group}
-            delItemFromList={this.props.delItemFromList}
           />
         ))}
       </div>
@@ -55,11 +58,7 @@ class TaskList extends Component {
 }
 
 TaskList.propTypes = {
-  addItemToList: PropTypes.func,
-  delItemFromList: PropTypes.func,
-  sortList: PropTypes.func,
-  taskList: PropTypes.object,
-  modifiedList: PropTypes.object
+  taskList: PropTypes.array
 };
 
-export default connect(mapStateToProps)(TaskList);
+export default connect(mapStateToProps, mapActionToProps)(TaskList);

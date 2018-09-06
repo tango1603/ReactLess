@@ -10,10 +10,10 @@ import { filterItems } from '../../store/actions';
 
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps', state);
+
+  console.log('Filter.mapStateToProps', state);
   return {
-    taskList: state.taskList,
-    modifiedList: state.modifiedList
+    taskList: state.taskList
   };
 };
 const mapActionToProps = (dispatch) => {
@@ -52,9 +52,7 @@ class Filter extends Component {
 
 
 Filter.propTypes = {
-  filterItems: PropTypes.func,
-  taskList: PropTypes.object,
-  modifiedList: PropTypes.object
+  filterItems: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Filter);

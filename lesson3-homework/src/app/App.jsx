@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import './App.scss';
 
 import Filter from './components/Filter/Filter.jsx';
@@ -14,22 +12,9 @@ export default class App extends Component {
       <div className="to-do-app">
         <div className="caption">ToDoList:</div>
         <Filter />
-        <TaskList
-          taskList={this.props.modifiedList || this.props.taskList}
-          delItemFromList={this.props.delItemFromList}
-          sortList={this.props.sortList}
-        />
-        <AddTask addItemToList={this.props.addItemToList} />
+        <TaskList/>
+        <AddTask/>
       </div>
     );
   }
 }
-
-App.propTypes = {
-  addItemToList: PropTypes.func,
-  delItemFromList: PropTypes.func,
-  sortList: PropTypes.func,
-  taskList: PropTypes.object,
-  modifiedList: PropTypes.object
-};
-

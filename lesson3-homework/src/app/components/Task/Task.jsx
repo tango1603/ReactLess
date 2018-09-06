@@ -9,10 +9,9 @@ import { DEF_GROUP } from '../../constants/constants.js';
 import { delItemFromList} from '../../store/actions';
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps', state);
+  console.log('Task.mapStateToProps', state);
   return {
-    taskList: state.taskList,
-    modifiedList: state.modifiedList
+    taskList: state.taskList
   };
 };
 const mapActionToProps = (dispatch) => {
@@ -47,10 +46,10 @@ class Task extends Component {
 }
 
 Task.propTypes = {
-  group: PropTypes.string,
-  name: PropTypes.string,
+  delItemFromList: PropTypes.func,
   description: PropTypes.string,
-  delItemFromList: PropTypes.func
+  group: PropTypes.string,
+  name: PropTypes.string
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Task);
