@@ -1,0 +1,23 @@
+
+
+
+.head{
+  &__caption {
+    margin: 10px 0;
+    font-weight: 700px;
+    font-size: 25px;
+  }
+
+  &__menu 
+  {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  .menu-item{
+
+  }
+}
+
