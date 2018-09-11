@@ -1,4 +1,4 @@
-import { ACTION_ADD_ITEM_TO_LIST, ACTION_DEL_ITEM_FROM_LIST, ACTION_FILTER_ITEMST, ACTION_SORT_LIST } from '../constants/constants';
+import { ACTION_ADD_ITEM_TO_LIST, ACTION_DEL_ITEM_FROM_LIST, ACTION_FILTER_ITEMST, ACTION_SORT_LIST } from '../store/constants';
 
 export const addItemToList = (newItem) => {
   return {

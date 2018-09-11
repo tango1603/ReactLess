@@ -1,5 +1,6 @@
 
-import { MOCKLIST, ACTION_ADD_ITEM_TO_LIST, ACTION_DEL_ITEM_FROM_LIST, ACTION_FILTER_ITEMST, ACTION_SORT_LIST } from '../constants/constants';
+import { MOCKLIST } from '../constants/constants';
+import { ACTION_ADD_ITEM_TO_LIST, ACTION_DEL_ITEM_FROM_LIST, ACTION_FILTER_ITEMST, ACTION_SORT_LIST } from '../store/constants';
 
 const initialDataTaskList = () => {
   const list = JSON.parse(localStorage.appListData || null);
@@ -17,11 +18,12 @@ const saveToLocalStorage = (taskList) => {
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
   case ACTION_ADD_ITEM_TO_LIST:
-    state.taskList.push(action.payload);
+    const newtaskList = [...state.taskList];
+    newtaskList.push(action.payload);
     saveToLocalStorage(state.taskList);
     return {
       ...state,
-      taskList: [...state.taskList]
+      taskList: [...newtaskList]
     };
 
   case ACTION_DEL_ITEM_FROM_LIST:

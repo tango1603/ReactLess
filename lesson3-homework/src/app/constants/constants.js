@@ -28,8 +28,3 @@ export const MOCKLIST = [{
   group: '3'
 }
 ];
-
-export const ACTION_ADD_ITEM_TO_LIST = 'ACTION_ADD_ITEM_TO_LIST';
-export const ACTION_DEL_ITEM_FROM_LIST = 'ACTION_DEL_ITEM_FROM_LIST';
-export const ACTION_FILTER_ITEMST = 'ACTION_FILTER_ITEMST';
-export const ACTION_SORT_LIST = 'ACTION_SORT_LIST';
